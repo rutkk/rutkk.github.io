@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="My personal website."
+    />
+    <link rel="icon" type="image/svg+xml" href="/signature-white.svg" />
+    <link
+      rel="preload"
+      href="/PlayfairDisplay-Italic.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Jakub Rutkowski</title>
+  </head>
+  <body>
+    <main class="site-shell">
+      <div id="canvas-container" aria-label="Interactive 3D business card">
+        <picture class="card-poster" aria-hidden="true">
+          <source srcset="/card-poster-mobile.webp" media="(max-width: 767px)" type="image/webp" />
+          <img src="/card-poster-desktop.webp" alt="" />
+        </picture>
+      </div>
+      <blockquote class="quote-block">
+        &ldquo;Look at that subtle off-white coloring. The tasteful thickness of it. Oh my God, it even has a watermark&hellip;&rdquo;
+      </blockquote>
+      <a
+        class="signature-link"
+        href="https://github.com/rutkk"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit Jakub Rutkowski on GitHub"
+      >
+        <img class="signature-mark" src="/signature.svg" alt="Signature" />
+      </a>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
