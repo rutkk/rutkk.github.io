@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Playfair Local';
-  src: url('/PlayfairDisplay-Italic.ttf') format('truetype');
+  src: url('/assets/PlayfairDisplay-Italic.ttf') format('truetype');
   font-style: italic;
   font-weight: 400;
   font-display: swap;

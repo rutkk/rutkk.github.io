@@ -19,13 +19,13 @@ const CAPTURES = [
     name: 'desktop',
     viewport: { width: 1600, height: 1000 },
     deviceScaleFactor: 1,
-    output: 'public/card-poster-desktop.webp',
+    output: 'public/assets/card-poster-desktop.webp',
   },
   {
     name: 'mobile',
     viewport: { width: 390, height: 760 },
     deviceScaleFactor: 2,
-    output: 'public/card-poster-mobile.webp',
+    output: 'public/assets/card-poster-mobile.webp',
   },
 ];
 

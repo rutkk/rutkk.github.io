@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const BASE = import.meta.env.BASE_URL;
+const BASE = import.meta.env.BASE_URL + 'assets/';
 const CARD_MATERIAL_NAME = 'Steel - Satin';
 const TEXT_MATERIAL_NAME = 'Paint - Metallic (Black)';
 const CAMERA_FIT_MARGIN = 0.95;
