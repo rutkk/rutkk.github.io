@@ -28,8 +28,14 @@ export function initScene(container) {
     return { onResize: () => {} };
   }
 
+  const getContainerSize = () => ({
+    width: Math.max(1, container.clientWidth),
+    height: Math.max(1, container.clientHeight),
+  });
+  const initialSize = getContainerSize();
+
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setSize(initialSize.width, initialSize.height);
   renderer.setClearColor(0x000000, 0);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -42,16 +48,16 @@ export function initScene(container) {
 
   const camera = new THREE.PerspectiveCamera(
     38,
-    container.clientWidth / container.clientHeight,
+    initialSize.width / initialSize.height,
     0.01,
     100
   );
   camera.position.set(0, 0, 5);
 
-  const ambientLight = new THREE.AmbientLight(0xfff4df, 0.45);
+  const ambientLight = new THREE.AmbientLight(0xfff4df, 0.62);
   scene.add(ambientLight);
 
-  const hemisphereLight = new THREE.HemisphereLight(0xfff6e8, 0x111018, 1.1);
+  const hemisphereLight = new THREE.HemisphereLight(0xfff6e8, 0x3a342c, 1.05);
   scene.add(hemisphereLight);
 
   const keyLight = new THREE.DirectionalLight(0xfff2dd, 3.4);
@@ -63,7 +69,12 @@ export function initScene(container) {
   scene.add(keyLight);
   scene.add(keyLight.target);
 
-  const rimLight = new THREE.DirectionalLight(0x9fc9ff, 1.2);
+  const backLight = new THREE.DirectionalLight(0xfff2dd, 2.1);
+  backLight.position.set(3.6, -3.2, -5.5);
+  scene.add(backLight);
+  scene.add(backLight.target);
+
+  const rimLight = new THREE.DirectionalLight(0xfff0dc, 0.65);
   rimLight.position.set(3.8, -2.4, 3.6);
   scene.add(rimLight);
 
@@ -150,6 +161,7 @@ export function initScene(container) {
     modelBounds.getCenter(modelCenter);
     controls.target.copy(modelCenter);
     keyLight.target.position.copy(modelCenter);
+    backLight.target.position.copy(modelCenter);
   };
 
   const fitCameraToModel = () => {
@@ -215,8 +227,7 @@ export function initScene(container) {
   renderer.setAnimationLoop(animate);
 
   function onResize() {
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    const { width, height } = getContainerSize();
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);

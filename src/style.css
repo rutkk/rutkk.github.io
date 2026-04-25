@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @font-face {
   font-family: 'Playfair Local';
   src: url('/assets/PlayfairDisplay-Italic.ttf') format('truetype');
@@ -33,23 +35,8 @@ body {
   font-family: 'Playfair Local', Georgia, 'Times New Roman', serif;
 }
 
-.site-shell {
-  position: relative;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto;
-  min-height: 100dvh;
-  width: 100%;
-  align-items: stretch;
-  gap: clamp(0.4rem, 1.2vh, 1rem);
-  padding: 0 0 clamp(0.75rem, 2vh, 1.5rem);
-}
-
 #canvas-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  overflow: visible;
+  contain: layout size;
 }
 
 #canvas-container canvas {
@@ -102,17 +89,7 @@ body {
 }
 
 .signature-mark {
-  display: block;
-  width: clamp(72px, 9vw, 132px);
-  max-width: 36%;
-  margin: 0.35rem auto 0;
-  filter: brightness(0) invert(1);
-}
-
-.signature-link {
-  display: block;
-  width: fit-content;
-  margin: 0 auto;
+  aspect-ratio: 231 / 133;
 }
 
 .fallback-message {
@@ -125,16 +102,6 @@ body {
 }
 
 @media (max-width: 767px) {
-  .site-shell {
-    grid-template-rows: minmax(0, 1fr) auto auto;
-    gap: 0.75rem;
-    padding-bottom: 1rem;
-  }
-
-  #canvas-container {
-    min-height: 330px;
-  }
-
   .quote-block {
     font-size: 0.98rem;
   }

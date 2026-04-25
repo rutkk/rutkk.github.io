@@ -7,6 +7,8 @@
       name="description"
       content="My personal website."
     />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/assets/signature-white.svg" />
     <link
       rel="preload"
@@ -19,8 +21,8 @@
     <title>Jakub Rutkowski</title>
   </head>
   <body>
-    <main class="site-shell">
-      <div id="canvas-container" aria-label="Interactive 3D business card">
+    <main class="relative grid min-h-dvh w-full grid-rows-[minmax(330px,1fr)_auto_auto] items-stretch gap-[clamp(0.4rem,1.2vh,1rem)] overflow-x-hidden pb-[clamp(0.75rem,2vh,1.5rem)] max-[767px]:gap-3 max-[767px]:pb-4">
+      <div id="canvas-container" class="relative h-full min-h-0 w-full overflow-visible" aria-label="Interactive 3D business card">
         <picture class="card-poster" aria-hidden="true">
           <source srcset="/assets/card-poster-mobile.webp" media="(max-width: 767px)" type="image/webp" />
           <img src="/assets/card-poster-desktop.webp" alt="" />
@@ -30,13 +32,13 @@
         &ldquo;Look at that subtle off-white coloring. The tasteful thickness of it. Oh my God, it even has a watermark&hellip;&rdquo;
       </blockquote>
       <a
-        class="signature-link"
+        class="mx-auto block w-fit"
         href="https://github.com/rutkk"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Visit Jakub Rutkowski on GitHub"
       >
-        <img class="signature-mark" src="/assets/signature.svg" alt="Signature" />
+        <img class="signature-mark mx-auto mt-1 block w-[clamp(44px,5vw,72px)] max-w-[24vw]" src="/assets/signature-white.svg" alt="Signature" />
       </a>
     </main>
     <script type="module" src="./src/main.js"></script>

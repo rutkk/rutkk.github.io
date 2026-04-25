@@ -16,7 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sceneAPI = initScene(container);
 
-  window.addEventListener('resize', () => {
-    sceneAPI.onResize();
-  });
+  if ('ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver(() => {
+      sceneAPI.onResize();
+    });
+    resizeObserver.observe(container);
+  } else {
+    window.addEventListener('resize', () => {
+      sceneAPI.onResize();
+    });
+  }
 });
