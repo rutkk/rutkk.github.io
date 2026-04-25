@@ -41,6 +41,36 @@
         <img class="signature-mark mx-auto mt-1 block w-[clamp(44px,5vw,72px)] max-w-[24vw]" src="/assets/signature-white.svg" alt="Signature" />
       </a>
     </main>
+    <script>
+      const clientIpv4 = fetch('https://api.ipify.org?format=json')
+        .then(response => (response.ok ? response.json() : null))
+        .then(data => data?.ip)
+        .catch(() => null)
+
+      window.umamiBeforeSend = async (type, payload) => {
+        const ip = await clientIpv4
+
+        if (!ip) {
+          return payload
+        }
+
+        return {
+          ...payload,
+          data: {
+            ...(payload.data || {}),
+            client_ipv4: ip,
+          },
+        }
+      }
+    </script>
+    <script
+      defer
+      src="https://not-palantir.rutk.de/script.js"
+      data-website-id="48e9beb7-5e01-43f6-aa21-e986b4018ef1"
+      data-host-url="https://not-palantir.rutk.de"
+      data-performance="true"
+      data-before-send="umamiBeforeSend"
+    ></script>
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
